@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>A2RL Planner Analyzer 2.4</label>
+  <version>2.4</version>
+  <type>Toolbox</type>
+  <identifier>9f046b1d-4465-494d-878a-56ae174f58e8</identifier>
+  <summary>A2RL 赛车规划组可视化分析软件</summary>
+  <description>可视化分析 A2RL 赛车规划部分的各种数据</description>
+  <createdBy name="Cpt.KK &amp; ZX &amp; GSY"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

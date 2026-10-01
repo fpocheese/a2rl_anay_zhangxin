@@ -1,0 +1,18 @@
+# Generated MATLAB installers and build outputs
+/release/
+
+# MATLAB autosave and editor backups
+*.asv
+*.m~
+
+# Local editor, agent, and credential settings
+/.vscode/
+/.agents/
+/.codex/
+/.aws/
+.env
+.env.*
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

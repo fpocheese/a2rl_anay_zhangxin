@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolset id="user_apps_toolset" template="false">
+    <tool app_file_path="A2RL_Planner_Analyzer.mlapp" handler_class="com.mathworks.deployment.desktop.toolstrip.ToolboxToolSetExtensionHandler" id="a1fc9011-b9e2-450e-a47a-64edb9cd9209:A2RL_Planner_Analyzer.mlapp" label="A2RL Planner Analyzer 2.4" quick_access_eligible="false" toolset_id="user_apps_toolset">
+        <callback>A2RL_Planner_Analyzer</callback>
+        <summary>A2RL 赛车规划组可视化分析软件</summary>
+        <description>可视化分析 A2RL 赛车规划部分的各种数据</description>
+        <icon filename="matlab_app_generic_icon_24" id="app"/>
+        <icon filename="matlab_app_generic_icon_16"/>
+        <parent_tool id="my_apps" toolset_id="apps_toolset"/>
+    </tool>
+</toolset>
