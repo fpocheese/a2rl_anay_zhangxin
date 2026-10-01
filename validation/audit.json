@@ -1,0 +1,64 @@
+{
+  "audit_kind": "independent source, interface and edge-case verification",
+  "source": "A2RL_Planner_Analyzer.mlapp:matlab/document.xml",
+  "tests": "tests/test_edge_cases.py",
+  "command": "env -u LD_LIBRARY_PATH .venv/bin/python -m pytest tests/test_edge_cases.py -q",
+  "result": {
+    "passed": 17,
+    "failed": 0
+  },
+  "metadata": {
+    "components": 119,
+    "pages": 13,
+    "axes": 37,
+    "source_callbacks": 14,
+    "checked": [
+      "Exact component identifier set and component types, independently decoded from untouched original MLAPP",
+      "Static UI text, tab titles and dropdown items",
+      "Grid rows, columns, spans, spacing and padding",
+      "All 37 plot titles, x axis labels and y axis labels"
+    ]
+  },
+  "edge_cases": [
+    "NPC omitted only at (0,0); positive/negative and single-zero coordinates remain visible",
+    "NPC heading vector, magenta x marker and 0.3 scale on main/planning trajectories",
+    "Partially absent NPC group does not break remaining plots",
+    "CSV command columns preserve file order, excluding prefix/suffix lookalikes",
+    "Single-row and final-row data with prediction horizons 1, 2, 10 and 30 across all 37 plots",
+    "Duplicate timestamps preserve infinite derivatives and NaN rather than inventing numeric values",
+    "Missing/noncontiguous lap IDs and nonfinite lap rows",
+    "Nearest-distance tie selects first row, consistent with MATLAB min",
+    "Initial NaN/Inf timestamp rejected with DataError",
+    "Successful reload restores default pit visibility",
+    "Selecting absent lap restores GUI selector to actual lap without moving data index",
+    "Track/engine resources load using SciPy/Pandas; runtime source imports no MATLAB and calls no external MATLAB process"
+  ],
+  "findings_fixed_during_audit": [
+    {
+      "issue": "Pit visibility persisted across loads unlike original read_data_file default",
+      "resolution": "Successful load resets state.pit to true; regression passes"
+    },
+    {
+      "issue": "Selecting nonexistent lap desynchronized selector and displayed data",
+      "resolution": "Restore selector and show error without clearing it; regression passes"
+    }
+  ],
+  "runtime_environment": {
+    "finding": "Inherited LD_LIBRARY_PATH prioritizes system Qt6 over PySide6 bundled libraries, causing Qt6DBus undefined symbol",
+    "verified_workaround": "run_analyzer.py prefers bundled Qt and project-local X11 support libraries; native xcb smoke test passed"
+  },
+  "original_behavior_notes": [
+    "Source references Tab_GGV_hw and plot_ggv_hw but creates no such tab or axis; this is dead code, not a missing visible page",
+    "Yaw and yaw-error curve samples retain raw values under the original deg labels; info yaw_error is converted to degrees",
+    "Displayed ms is the original rounded fractional second without multiplying by 1000",
+    "Prediction time/value vectors are jointly truncated near EOF to fix the original dimension mismatch",
+    "Missing optional data are displayed as unavailable instead of propagating original stale-array/index failures",
+    "View-size selection takes effect after initial render; original saved-limit behavior could ignore it"
+  ],
+  "limits": [
+    "This independent audit does not claim exhaustive equivalence for every possible CSV",
+    "Qt/Matplotlib is not a pixel-identical MATLAB renderer; all 24 recorded quiver scale factors have now passed numerical verification, but arrow-head shape and antialiasing differ",
+    "Numeric MATLAB-oracle comparison is recorded separately in parity_report.json",
+    "Final full regression suite passes without warnings; see REPORT.md for the tested environment"
+  ]
+}

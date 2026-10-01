@@ -16,3 +16,11 @@
 # Operating system metadata
 .DS_Store
 Thumbs.db
+
+# Python development and local validation artifacts
+/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/validation/generated/
+/logs/

@@ -1,0 +1,9 @@
+{
+  "pages": 78,
+  "series": 732,
+  "arrays": 3774,
+  "max_absolute_error": 3.197442310920451e-14,
+  "reference_errors": [],
+  "failures": [],
+  "text_differences": []
+}

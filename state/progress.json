@@ -1,0 +1,25 @@
+{
+  "phase": "complete",
+  "source_lines": 3363,
+  "tabs": 13,
+  "axes": 37,
+  "reference_csv": "/home/uav/mmmmatlab_file/zhangxin_one_minute/sms-csv-log_2025-11-14_21-40-00.csv",
+  "updated_at": "2026-10-01T22:04:22.905862",
+  "data_plot_tests": 44,
+  "original_matlab_pages": 78,
+  "original_matlab_series": 732,
+  "numeric_arrays": 3774,
+  "max_numeric_error": 3.197442310920451e-14,
+  "automatic_axis_checks": 378,
+  "pyside6_installed": true,
+  "tests_qt6": 86,
+  "tests_qt5": 86,
+  "native_desktop": "PySide6 / X11 xcb / 26923 rows / 13 tabs",
+  "quiver_scale_checks": 24,
+  "original_files_unchanged": 68,
+  "documentation": [
+    "README.md",
+    "validation/REPORT.md"
+  ],
+  "known_limits": "Renderer/font/toolbar pixels differ; numerical and functional tests are scoped to the report"
+}

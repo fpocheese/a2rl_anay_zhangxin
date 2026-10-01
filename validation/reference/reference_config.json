@@ -1,0 +1,136 @@
+{
+  "csv": "sms-csv-log_2025-11-14_21-40-00.csv",
+  "tabs": [
+    "Tab_Main",
+    "Tab_Each_Lap",
+    "Tab_Runtime",
+    "Tab_Acc",
+    "Tab_Err",
+    "Tab_Tyre_Temp",
+    "Tab_Slip_Angle",
+    "Tab_Slip_Ratio",
+    "Tab_Old_Slip",
+    "Tab_Slip_Compare",
+    "Tab_Actsteer",
+    "Tab_Planning_Acc",
+    "Tab_GGV"
+  ],
+  "methods": [
+    "update_plot_main",
+    "update_plot_each_lap",
+    "update_plot_runtime",
+    "update_plot_acc",
+    "update_plot_error",
+    "update_plot_tyre_temp",
+    "update_plot_slip_angle",
+    "update_plot_slip_ratio",
+    "update_plot_old_slip",
+    "plot_slip_compare",
+    "plot_actsteer",
+    "plot_planning_acc",
+    "plot_ggv"
+  ],
+  "axes": {
+    "Tab_Main": [
+      "GG_plot",
+      "Yaw_plot",
+      "Traj_plot",
+      "Vel_plot"
+    ],
+    "Tab_Each_Lap": [
+      "Each_lap_plot"
+    ],
+    "Tab_Runtime": [
+      "steptime_plot"
+    ],
+    "Tab_Acc": [
+      "Acc_X_plot",
+      "Acc_Y_plot"
+    ],
+    "Tab_Err": [
+      "Vel_err_plot",
+      "Lat_err_plot",
+      "Yaw_err_plot"
+    ],
+    "Tab_Tyre_Temp": [
+      "FL_Tyre_plot",
+      "FR_Tyre_plot",
+      "RR_Tyre_plot",
+      "RL_Tyre_plot"
+    ],
+    "Tab_Slip_Angle": [
+      "FL_Slip_Angle",
+      "FR_Slip_Angle",
+      "RL_Slip_Angle",
+      "RR_Slip_Angle"
+    ],
+    "Tab_Slip_Ratio": [
+      "FL_Slip_Ratio",
+      "FR_Slip_Ratio",
+      "RL_Slip_Ratio",
+      "RR_Slip_Ratio"
+    ],
+    "Tab_Old_Slip": [
+      "Old_Front_Slip_Angle",
+      "Old_Rear_Slip_Angle",
+      "Old_Front_Slip_Ratio",
+      "Old_Rear_Slip_Ratio"
+    ],
+    "Tab_Slip_Compare": [
+      "Front_Slip_Ratio_Compare",
+      "Front_Slip_Angle_Compare",
+      "Rear_Slip_Ratio_Compare",
+      "Rear_Slip_Angle_Compare"
+    ],
+    "Tab_Actsteer": [
+      "Actsteer_Fig"
+    ],
+    "Tab_Planning_Acc": [
+      "Planning_acc_Plot",
+      "Planning_path_plot",
+      "Planning_vel_plot",
+      "Planning_ggv_plot"
+    ],
+    "Tab_GGV": [
+      "GGV_plot"
+    ]
+  },
+  "cases": [
+    {
+      "index": 1,
+      "horizon": 30,
+      "pit": true,
+      "plot_size": 1
+    },
+    {
+      "index": 13461,
+      "horizon": 30,
+      "pit": true,
+      "plot_size": 1
+    },
+    {
+      "index": 23894,
+      "horizon": 30,
+      "pit": true,
+      "plot_size": 1
+    },
+    {
+      "index": 26894,
+      "horizon": 30,
+      "pit": true,
+      "plot_size": 1
+    },
+    {
+      "index": 26923,
+      "horizon": 1,
+      "pit": true,
+      "plot_size": 1
+    },
+    {
+      "index": 8974,
+      "horizon": 7,
+      "pit": false,
+      "plot_size": 2
+    }
+  ]
+}

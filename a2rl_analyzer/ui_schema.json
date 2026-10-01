@@ -1,0 +1,1447 @@
+{
+  "A2RL_UIFigure_": {
+    "kind": "uifigure",
+    "parent": null,
+    "props": {
+      "Color": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "Position": "[100 100 960 540]",
+      "Name": "'A2RL 赛车规划可视化分析'",
+      "Icon": "fullfile(pathToMLAPP, 'racing-car.png')",
+      "KeyPressFcn": "createCallbackFcn(app, @A2RL_UIFigure_KeyPress, true)",
+      "Visible": "'on'"
+    }
+  },
+  "MainGrid": {
+    "kind": "uigridlayout",
+    "parent": "A2RL_UIFigure_",
+    "props": {
+      "ColumnWidth": "{'1.2x', '2x'}",
+      "RowHeight": "{'1x'}",
+      "ColumnSpacing": "0",
+      "RowSpacing": "0",
+      "Padding": "[0 0 0 0]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "LeftPanel": {
+    "kind": "uipanel",
+    "parent": "MainGrid",
+    "props": {
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "BorderType": "'none'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "Layout.Row": "1",
+      "Layout.Column": "1"
+    }
+  },
+  "Left_Main_Grid": {
+    "kind": "uigridlayout",
+    "parent": "LeftPanel",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'0.12x', '0.12x', '0.3x', '0.5x'}",
+      "ColumnSpacing": "5",
+      "RowSpacing": "5",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Title_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Left_Main_Grid",
+    "props": {
+      "ColumnWidth": "{'0.2x', '1x'}",
+      "RowHeight": "{'1x', '0.5x'}",
+      "ColumnSpacing": "5",
+      "RowSpacing": "5",
+      "Padding": "[5 5 5 5]",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "A2RLLabel": {
+    "kind": "uilabel",
+    "parent": "Title_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontWeight": "'bold'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "Text": "'A2RL 赛车规划组可视化分析软件'"
+    }
+  },
+  "AuthorLabel": {
+    "kind": "uilabel",
+    "parent": "Title_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "Text": "'Code by CptKK'"
+    }
+  },
+  "Myicon": {
+    "kind": "uiimage",
+    "parent": "Title_Grid",
+    "props": {
+      "BusyAction": "'cancel'",
+      "Interruptible": "'off'",
+      "Layout.Row": "[1 2]",
+      "Layout.Column": "1",
+      "ImageSource": "fullfile(pathToMLAPP, 'flyeagle_logo.png')"
+    }
+  },
+  "ReadFile_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Left_Main_Grid",
+    "props": {
+      "ColumnWidth": "{'0.6x', '0.8x', '0.8x'}",
+      "RowHeight": "{'1x'}",
+      "Padding": "[8 8 8 8]",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Read_File_Button_": {
+    "kind": "uibutton",
+    "parent": "ReadFile_Grid",
+    "props": {
+      "ButtonPushedFcn": "createCallbackFcn(app, @Read_File_Button_Pushed, true)",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "Text": "'读取'"
+    }
+  },
+  "File_Label": {
+    "kind": "uilabel",
+    "parent": "ReadFile_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "WordWrap": "'on'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "Text": "'当前文件：等待读取……'"
+    }
+  },
+  "Label_Time_stamp": {
+    "kind": "uilabel",
+    "parent": "ReadFile_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "WordWrap": "'on'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "3",
+      "Text": "'Time_stamp: '"
+    }
+  },
+  "Selector_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Left_Main_Grid",
+    "props": {
+      "ColumnWidth": "{'0.5x', '1x', '0.5x', '1x'}",
+      "RowHeight": "{'0.4x', '1x', '0.4x'}",
+      "Padding": "[8 8 8 8]",
+      "Layout.Row": "3",
+      "Layout.Column": "1",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Label_14": {
+    "kind": "uilabel",
+    "parent": "Selector_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "Text": "'当前索引'"
+    }
+  },
+  "Curr_Idx_Selector_": {
+    "kind": "uispinner",
+    "parent": "Selector_Grid",
+    "props": {
+      "Step": "10",
+      "ValueChangingFcn": "createCallbackFcn(app, @Curr_Idx_Selector_ValueChanging, true)",
+      "Limits": "[1 Inf]",
+      "RoundFractionalValues": "'on'",
+      "ValueChangedFcn": "createCallbackFcn(app, @Curr_Idx_Selector_ValueChanged, true)",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "Value": "1"
+    }
+  },
+  "Label_17": {
+    "kind": "uilabel",
+    "parent": "Selector_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "3",
+      "Text": "'步长'"
+    }
+  },
+  "Curr_Step_DropDown_": {
+    "kind": "uidropdown",
+    "parent": "Selector_Grid",
+    "props": {
+      "Items": "{'1', '10', '100'}",
+      "ValueChangedFcn": "createCallbackFcn(app, @Curr_Step_DropDown_ValueChanged, true)",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "Layout.Row": "1",
+      "Layout.Column": "4",
+      "Value": "'10'"
+    }
+  },
+  "Curr_Idx_Slider_": {
+    "kind": "uislider",
+    "parent": "Selector_Grid",
+    "props": {
+      "Limits": "[1 101]",
+      "ValueChangedFcn": "createCallbackFcn(app, @Curr_Idx_Slider_ValueChanged, true)",
+      "ValueChangingFcn": "createCallbackFcn(app, @Curr_Idx_Slider_ValueChanging, true)",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "[1 4]",
+      "Value": "1"
+    }
+  },
+  "Label_2": {
+    "kind": "uilabel",
+    "parent": "Selector_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "1",
+      "Text": "'绘制点数'"
+    }
+  },
+  "Max_Cmd_Point_Selector_": {
+    "kind": "uispinner",
+    "parent": "Selector_Grid",
+    "props": {
+      "Limits": "[0 Inf]",
+      "RoundFractionalValues": "'on'",
+      "ValueChangedFcn": "createCallbackFcn(app, @Max_Cmd_Point_Selector_ValueChanged, true)",
+      "FontSize": "14",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "2",
+      "Value": "10"
+    }
+  },
+  "Label_18": {
+    "kind": "uilabel",
+    "parent": "Selector_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "3",
+      "Text": "'轨迹视野'"
+    }
+  },
+  "Plot_View_Size_DropDown_": {
+    "kind": "uidropdown",
+    "parent": "Selector_Grid",
+    "props": {
+      "Items": "{'小', '正常', '大'}",
+      "ValueChangedFcn": "createCallbackFcn(app, @Plot_View_Size_DropDown_ValueChanged, true)",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "Layout.Row": "3",
+      "Layout.Column": "4",
+      "Value": "'正常'"
+    }
+  },
+  "Text_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Left_Main_Grid",
+    "props": {
+      "ColumnWidth": "{'0.5x', '1x', '0.5x', '1x'}",
+      "RowHeight": "{'1x', '1x', '1x', '1x', '1x', '1x'}",
+      "Padding": "[8 8 8 8]",
+      "Layout.Row": "4",
+      "Layout.Column": "1",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Label_6": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "Text": "'所处位置'"
+    }
+  },
+  "Text_self_pos": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "2"
+    }
+  },
+  "Label_3": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "3",
+      "Text": "{'状态机'; '状态'}"
+    }
+  },
+  "Text_state": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "4"
+    }
+  },
+  "Label_8": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "Text": "{'RC'; '速度限制'}"
+    }
+  },
+  "Text_vel_limit": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "2"
+    }
+  },
+  "Label_7": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "3",
+      "Text": "{'当前运行'; '时间(s)'}"
+    }
+  },
+  "Text_time": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "4"
+    }
+  },
+  "Label_4": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "1",
+      "Text": "{'位置优化'; '结果'}"
+    }
+  },
+  "Text_op_pos_flag": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "2"
+    }
+  },
+  "Label_5": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "3",
+      "Text": "{'速度优化'; '结果'}"
+    }
+  },
+  "Text_op_vel_flag": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "4"
+    }
+  },
+  "Label_9": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "4",
+      "Layout.Column": "1",
+      "Text": "{'横向误差'; '(m)'}"
+    }
+  },
+  "Text_lat_error": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "4",
+      "Layout.Column": "2"
+    }
+  },
+  "Label_10": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "4",
+      "Layout.Column": "3",
+      "Text": "{'航向误差'; '(deg)'}"
+    }
+  },
+  "Text_yaw_error": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "4",
+      "Layout.Column": "4"
+    }
+  },
+  "Label_11": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "5",
+      "Layout.Column": "1",
+      "Text": "{'速度误差'; '(m/s)'}"
+    }
+  },
+  "Text_vel_error": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "5",
+      "Layout.Column": "2"
+    }
+  },
+  "Label_12": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "5",
+      "Layout.Column": "3",
+      "Text": "{'规划时间'; '(ms)'}"
+    }
+  },
+  "Text_step_time": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "Editable": "'off'",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "5",
+      "Layout.Column": "4"
+    }
+  },
+  "vmsEditFieldLabel": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "6",
+      "Layout.Column": "1",
+      "Text": "'速度v(m/s)'"
+    }
+  },
+  "Text_vel": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "6",
+      "Layout.Column": "2"
+    }
+  },
+  "smEditFieldLabel": {
+    "kind": "uilabel",
+    "parent": "Text_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "6",
+      "Layout.Column": "3",
+      "Text": "'位置s(m)'"
+    }
+  },
+  "Text_s": {
+    "kind": "uieditfield",
+    "parent": "Text_Grid",
+    "props": {
+      "ValueChangedFcn": "createCallbackFcn(app, @Text_sValueChanged, true)",
+      "HorizontalAlignment": "'center'",
+      "FontSize": "18",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "6",
+      "Layout.Column": "4"
+    }
+  },
+  "RightPanel": {
+    "kind": "uipanel",
+    "parent": "MainGrid",
+    "props": {
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "BorderType": "'none'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "Layout.Row": "1",
+      "Layout.Column": "2"
+    }
+  },
+  "Right_Main_Grid": {
+    "kind": "uigridlayout",
+    "parent": "RightPanel",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'1x'}",
+      "ColumnSpacing": "1",
+      "RowSpacing": "1",
+      "Padding": "[0 0 0 0]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Tab_Group_": {
+    "kind": "uitabgroup",
+    "parent": "Right_Main_Grid",
+    "props": {
+      "SelectionChangedFcn": "createCallbackFcn(app, @Tab_Group_SelectionChanged, true)",
+      "Layout.Row": "1",
+      "Layout.Column": "1"
+    }
+  },
+  "Tab_Main": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'关键图'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Main_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Main",
+    "props": {
+      "Padding": "[5 5 5 5]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "GG_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Main_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "GG图",
+      "xlabel": "Ay(m/s^2)",
+      "ylabel": "Ax (m/s^2)",
+      "zlabel": "Z"
+    }
+  },
+  "Yaw_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Main_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "航向",
+      "xlabel": "t (s)",
+      "ylabel": "Yaw (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Traj_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Main_Grid",
+    "props": {
+      "Layer": "'top'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "PickableParts": "'all'",
+      "title": "轨迹",
+      "xlabel": "x (m)",
+      "ylabel": "y (m)",
+      "zlabel": "Z"
+    }
+  },
+  "Vel_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Main_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "速度",
+      "xlabel": "t (s)",
+      "ylabel": "V (m/s)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Each_Lap": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'每圈轨迹'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Each_Lap_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Each_Lap",
+    "props": {
+      "ColumnWidth": "{'1x', '1x', '1x', '1x'}",
+      "RowHeight": "{'1x', '15x'}",
+      "Padding": "[5 5 5 5]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Each_lap_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "[1 4]",
+      "title": "每圈轨迹",
+      "xlabel": "x (m)",
+      "ylabel": "y (m)",
+      "zlabel": "Z"
+    }
+  },
+  "Label_16": {
+    "kind": "uilabel",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "Text": "'圈数'"
+    }
+  },
+  "Lap_Selector_": {
+    "kind": "uispinner",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "Limits": "[1 Inf]",
+      "RoundFractionalValues": "'on'",
+      "ValueDisplayFormat": "'%d'",
+      "ValueChangedFcn": "createCallbackFcn(app, @Lap_Selector_ValueChanged, true)",
+      "HorizontalAlignment": "'center'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "Value": "1"
+    }
+  },
+  "pitButton": {
+    "kind": "uibutton",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "ButtonPushedFcn": "createCallbackFcn(app, @pitButtonPushed, true)",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "3",
+      "Text": "'含pit'"
+    }
+  },
+  "nopitButton": {
+    "kind": "uibutton",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "ButtonPushedFcn": "createCallbackFcn(app, @nopitButtonPushed, true)",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "1",
+      "Layout.Column": "4",
+      "Text": "'不含pit'"
+    }
+  },
+  "Label_lap_time": {
+    "kind": "uilabel",
+    "parent": "Tab_Each_Lap_Grid",
+    "props": {
+      "VerticalAlignment": "'top'",
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "2",
+      "Layout.Column": "4",
+      "Text": "'当前圈速:'"
+    }
+  },
+  "Tab_Runtime": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'规划时间'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Runtime_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Runtime",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'1x'}",
+      "Padding": "[5 5 5 5]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "steptime_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Runtime_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "规划时间",
+      "xlabel": "t (s)",
+      "ylabel": "runtime (ms)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Acc": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'加速度'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Acc_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Acc",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Acc_X_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Acc_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "x方向加速度",
+      "xlabel": "索引",
+      "ylabel": "a_x (m/s^2)",
+      "zlabel": "Z"
+    }
+  },
+  "Acc_Y_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Acc_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "y方向加速度",
+      "xlabel": "索引",
+      "ylabel": "a_y (m/s^2) ",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Err": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'误差'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Err_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Err",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'1x', '1x', '1x'}",
+      "Padding": "[5 5 5 5]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Vel_err_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Err_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "速度误差",
+      "xlabel": "t (s)",
+      "ylabel": "e_V (m/s)",
+      "zlabel": "Z"
+    }
+  },
+  "Lat_err_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Err_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "横向误差",
+      "xlabel": "t (s)",
+      "ylabel": "e_L (m)",
+      "zlabel": "Z"
+    }
+  },
+  "Yaw_err_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Err_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "3",
+      "Layout.Column": "1",
+      "title": "航向误差",
+      "xlabel": "t (s)",
+      "ylabel": "e_H (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Tyre_Temp": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'轮胎温度'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Tyre_Temp_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Tyre_Temp",
+    "props": {
+      "RowHeight": "{'1x', '1x', '0.1x'}",
+      "Padding": "[5 5 5 5]",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "FL_Tyre_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Tyre_Temp_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "左前胎温",
+      "xlabel": "t (s)",
+      "ylabel": "Temp (℃)",
+      "zlabel": "Z"
+    }
+  },
+  "FR_Tyre_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Tyre_Temp_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "右前胎温",
+      "xlabel": "t (s)",
+      "ylabel": "Temp (℃)",
+      "zlabel": "Z"
+    }
+  },
+  "RR_Tyre_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Tyre_Temp_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "右后胎温",
+      "xlabel": "t (s)",
+      "ylabel": "Temp (℃)",
+      "zlabel": "Z"
+    }
+  },
+  "RL_Tyre_plot": {
+    "kind": "uiaxes",
+    "parent": "Tab_Tyre_Temp_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "左后胎温",
+      "xlabel": "t (s)",
+      "ylabel": "Temp (℃)",
+      "zlabel": "Z"
+    }
+  },
+  "fontstylecolorredfontLabel": {
+    "kind": "uilabel",
+    "parent": "Tab_Tyre_Temp_Grid",
+    "props": {
+      "FontColor": "[0.129411764705882 0.129411764705882 0.129411764705882]",
+      "Layout.Row": "3",
+      "Layout.Column": "[1 2]",
+      "Interpreter": "'html'",
+      "Text": "'注：<font style=''color:red;''>红色</font>为中心胎温，<font style=''color:green;''>绿色</font>为内部胎温，<font style=''color:blue;''>蓝色</font>为外部胎温'"
+    }
+  },
+  "Tab_Slip_Angle": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'滑移角'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Slip_Angle_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Slip_Angle",
+    "props": {
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "FL_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Angle_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "左前滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "FR_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Angle_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "右前滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "RL_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Angle_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "左后滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "RR_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Angle_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "右后滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Slip_Ratio": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'滑移率'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Slip_Ratio_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Slip_Ratio",
+    "props": {
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "FL_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Ratio_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "左前滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "FR_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Ratio_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "右前滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "RL_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Ratio_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "左后滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "RR_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Slip_Ratio_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "右后滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Old_Slip": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'旧滑移'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Tab_Old_Slip_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Old_Slip",
+    "props": {
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Old_Front_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Old_Slip_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "旧计算方法的前轮滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Old_Rear_Slip_Angle": {
+    "kind": "uiaxes",
+    "parent": "Tab_Old_Slip_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "旧计算方法的后轮滑移角",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Old_Front_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Old_Slip_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "旧计算方法的前轮滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "Old_Rear_Slip_Ratio": {
+    "kind": "uiaxes",
+    "parent": "Tab_Old_Slip_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "旧计算方法的后轮滑移率",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Slip_Compare": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'新旧滑移对比'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Slip_Compare_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Slip_Compare",
+    "props": {
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Front_Slip_Ratio_Compare": {
+    "kind": "uiaxes",
+    "parent": "Slip_Compare_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "前轮滑移率对比",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "Front_Slip_Angle_Compare": {
+    "kind": "uiaxes",
+    "parent": "Slip_Compare_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "前轮滑移角对比",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Rear_Slip_Ratio_Compare": {
+    "kind": "uiaxes",
+    "parent": "Slip_Compare_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "后轮滑移率对比",
+      "xlabel": "t (s)",
+      "ylabel": "值",
+      "zlabel": "Z"
+    }
+  },
+  "Rear_Slip_Angle_Compare": {
+    "kind": "uiaxes",
+    "parent": "Slip_Compare_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "后轮滑移角对比",
+      "xlabel": "t (s)",
+      "ylabel": "角度 (deg)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Actsteer": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'转角'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Actsteer_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Actsteer",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'1x'}",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Actsteer_Fig": {
+    "kind": "uiaxes",
+    "parent": "Actsteer_Grid",
+    "props": {
+      "GridLineStyle": "':'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "转角",
+      "xlabel": "t (s)",
+      "ylabel": "值 (度)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_Planning_Acc": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'规划加速度'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "Planning_Acc_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_Planning_Acc",
+    "props": {
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "Planning_acc_Plot": {
+    "kind": "uiaxes",
+    "parent": "Planning_Acc_Grid",
+    "props": {
+      "GridLineStyle": "':'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "1",
+      "title": "规划加速度(和上一时刻vel1预测速度微分)",
+      "xlabel": "t (s)",
+      "ylabel": "A (m/s^2)",
+      "zlabel": "Z"
+    }
+  },
+  "Planning_path_plot": {
+    "kind": "uiaxes",
+    "parent": "Planning_Acc_Grid",
+    "props": {
+      "GridLineStyle": "':'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "规划路径",
+      "xlabel": "x (m)",
+      "ylabel": "y (m)",
+      "zlabel": "Z"
+    }
+  },
+  "Planning_vel_plot": {
+    "kind": "uiaxes",
+    "parent": "Planning_Acc_Grid",
+    "props": {
+      "GridLineStyle": "':'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "2",
+      "title": "规划速度",
+      "xlabel": "t (s)",
+      "ylabel": "V (m/s)",
+      "zlabel": "Z"
+    }
+  },
+  "Planning_ggv_plot": {
+    "kind": "uiaxes",
+    "parent": "Planning_Acc_Grid",
+    "props": {
+      "GridLineStyle": "':'",
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "2",
+      "Layout.Column": "2",
+      "title": "GGV图",
+      "xlabel": "Ay (m/s^2)",
+      "ylabel": "Ax (m/s^2)",
+      "zlabel": "Z"
+    }
+  },
+  "Tab_GGV": {
+    "kind": "uitab",
+    "parent": "Tab_Group_",
+    "props": {
+      "Title": "'GGV绘制'",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]",
+      "ForegroundColor": "[0.129411764705882 0.129411764705882 0.129411764705882]"
+    }
+  },
+  "GGV_Grid": {
+    "kind": "uigridlayout",
+    "parent": "Tab_GGV",
+    "props": {
+      "ColumnWidth": "{'1x'}",
+      "RowHeight": "{'1x'}",
+      "BackgroundColor": "[0.96078431372549 0.96078431372549 0.96078431372549]"
+    }
+  },
+  "GGV_plot": {
+    "kind": "uiaxes",
+    "parent": "GGV_Grid",
+    "props": {
+      "XGrid": "'on'",
+      "YGrid": "'on'",
+      "NextPlot": "'add'",
+      "Layout.Row": "1",
+      "Layout.Column": "1",
+      "title": "GGV",
+      "xlabel": "ay (m/s^2)",
+      "ylabel": "ax (m/s^2)",
+      "zlabel": "Z"
+    }
+  }
+}
